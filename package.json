@@ -13,6 +13,7 @@
     "dev": "next dev --turbo",
     "format": "biome format .",
     "format:check": "biome format . --write=false --verbose",
+    "format:fix": "biome format . --write",
     "lint": "biome lint .",
     "lint:fix": "biome lint . --apply",
     "preview": "next build && next start",
