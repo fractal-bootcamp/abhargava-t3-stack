@@ -1,4 +1,4 @@
-// I might need this as a route to validate the user is logged in
+// Uses this route to validate the user is logged in
 
 import { auth } from '@clerk/nextjs/server'
 

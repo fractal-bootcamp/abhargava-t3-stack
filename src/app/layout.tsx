@@ -26,13 +26,15 @@ export default function RootLayout({
       <html lang="en" className={`${GeistSans.variable}`}>
         <body>
           <header className="flex items-center justify-center py-8 px-4" />
-          <div className="absolute top-4 right-4">
-            <SignedOut>
-              <SignInButton />
-            </SignedOut>
-            <SignedIn>
-              <UserButton />
-            </SignedIn>
+          <div className="border-b">
+            <div className="absolute top-4 right-4">
+              <SignedOut>
+                <SignInButton />
+              </SignedOut>
+              <SignedIn>
+                <UserButton />
+              </SignedIn>
+            </div>
           </div>
           <TRPCReactProvider>{children}</TRPCReactProvider>
         </body>
