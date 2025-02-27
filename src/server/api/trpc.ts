@@ -1,3 +1,4 @@
+import type { auth } from '@clerk/nextjs/server'
 /**
  * YOU PROBABLY DON'T NEED TO EDIT THIS FILE, UNLESS:
  * 1. You want to modify request context (see Part 1).
@@ -6,11 +7,11 @@
  * TL;DR - This is where all the tRPC server stuff is created and plugged in. The pieces you will
  * need to use are documented accordingly near the end.
  */
-import { initTRPC } from '@trpc/server'
+import { TRPCError, initTRPC } from '@trpc/server'
 import superjson from 'superjson'
 import { ZodError } from 'zod'
-
 import { db } from '~/server/db'
+type Auth = Awaited<ReturnType<typeof auth>>
 
 /**
  * 1. CONTEXT
@@ -24,9 +25,13 @@ import { db } from '~/server/db'
  *
  * @see https://trpc.io/docs/server/context
  */
-export const createTRPCContext = async (opts: { headers: Headers }) => {
+export const createTRPCContext = async (opts: {
+  headers: Headers
+  auth: Auth
+}) => {
   return {
     db,
+    userId: opts.auth.userId,
     ...opts,
   }
 }
@@ -104,3 +109,25 @@ const timingMiddleware = t.middleware(async ({ next, path }) => {
  * are logged in.
  */
 export const publicProcedure = t.procedure.use(timingMiddleware)
+
+/**
+ * Protected procedure middleware
+ *
+ * This middleware ensures that the user is authenticated before proceeding to the next middleware.
+ * It throws a TRPCError if the user is not authenticated.
+ */
+export const protectedMiddleware = t.middleware(async ({ ctx, next }) => {
+  if (!ctx.userId) {
+    throw new TRPCError({ code: 'UNAUTHORIZED' })
+  }
+  return next({ ctx: { userId: ctx.userId } })
+})
+
+/**
+ * Protected procedure
+ *
+ * This is the base piece you use to build new queries and mutations on your tRPC API. It does not
+ * guarantee that a user querying is authorized, but you can still access user session data if they
+ * are logged in.
+ */
+export const protectedProcedure = t.procedure.use(protectedMiddleware)
