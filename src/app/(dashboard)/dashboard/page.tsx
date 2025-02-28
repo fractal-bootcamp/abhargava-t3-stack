@@ -1,3 +1,5 @@
+import { SignedIn, UserButton } from '@clerk/nextjs'
+
 export default function DashboardPage() {
   return (
     <div className="w-full">
@@ -5,6 +7,9 @@ export default function DashboardPage() {
         <p className="text-lg">
           You're logged in so you're going to make it. 👍
         </p>
+        <SignedIn>
+          <UserButton />
+        </SignedIn>
       </div>
     </div>
   )
