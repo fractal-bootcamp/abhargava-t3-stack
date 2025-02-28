@@ -57,17 +57,19 @@ export function AppSidebar() {
               }
             }}
           >
-            <UserButton />
-            <div className="flex flex-col justify-start group-data-[collapsed=true]:hidden">
-              <p className="text-md font-medium">
-                {user?.firstName} {user?.lastName}
-              </p>
-              <p className="text-sm text-gray-500">
-                Last Here:{' '}
-                {user?.lastSignInAt
-                  ? new Date(user.lastSignInAt).toLocaleDateString()
-                  : 'No sign in date available'}
-              </p>
+            <div className="flex items-center gap-3">
+              <UserButton />
+              <div className="flex flex-col items-start group-data-[collapsed=true]:hidden">
+                <p className="text-md font-medium">
+                  {user?.firstName} {user?.lastName}
+                </p>
+                <p className="text-sm text-gray-500">
+                  Last Here:{' '}
+                  {user?.lastSignInAt
+                    ? new Date(user.lastSignInAt).toLocaleDateString()
+                    : 'No sign in date available'}
+                </p>
+              </div>
             </div>
           </button>
         </SignedIn>
