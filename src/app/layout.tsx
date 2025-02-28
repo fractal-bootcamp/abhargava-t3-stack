@@ -25,16 +25,6 @@ export default function RootLayout({
     <ClerkProvider>
       <html lang="en" className={`${GeistSans.variable}`}>
         <body>
-          <header className="flex items-center justify-center">
-            <div className="flex items-center justify-end gap-4 w-full border-b py-2 px-2">
-              <SignedOut>
-                <SignInButton />
-              </SignedOut>
-              <SignedIn>
-                <UserButton />
-              </SignedIn>
-            </div>
-          </header>
           <TRPCReactProvider>{children}</TRPCReactProvider>
         </body>
       </html>
