@@ -45,9 +45,6 @@ export default async function Home() {
             If you want to store a memory when you're logged out, you're NGMI.
             🫵😂
           </p>
-          <SignedIn>
-            <UserButton />
-          </SignedIn>
         </div>
       </div>
     </div>
