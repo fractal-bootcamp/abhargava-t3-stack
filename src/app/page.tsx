@@ -40,7 +40,7 @@ export default async function Home() {
         </DropdownMenu>
       </div>
       <div className="flex flex-col items-center justify-center h-screen">
-        <div className="flex flex-col items-center gap-4 py-8 px-6 border rounded-md w-full max-w-2xl mx-auto justify-center">
+        <div className="flex flex-col items-center gap-4 py-8 px-6 border w-full max-w-2xl mx-auto justify-center rounded-none">
           <h1 className="text-4xl font-bold text-center">Keepsake</h1>
           <p className="text-lg text-center">
             If you want to store a memory when you're logged out, you're NGMI.
