@@ -118,7 +118,7 @@ export const publicProcedure = t.procedure.use(timingMiddleware)
  */
 export const protectedMiddleware = t.middleware(async ({ ctx, next }) => {
   if (!ctx.userId) {
-    throw new TRPCError({ code: 'UNAUTHORIZED' })
+    throw new TRPCError({ code: 'FORBIDDEN' })
   }
   return next({ ctx: { userId: ctx.userId } })
 })
