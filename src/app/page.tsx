@@ -20,21 +20,19 @@ export default async function Home() {
             align="end"
             alignOffset={4}
           >
-            <SignedOut>
-              <DropdownMenuItem>
-                <SignInButton>
-                  <button
-                    type="button"
-                    className="w-full flex items-center justify-between"
-                  >
-                    <div className="flex items-center gap-2">
-                      <LogIn className="h-6 w-6 mr-2" />
-                      <p className="font-light text-lg">Login</p>
-                    </div>
-                  </button>
-                </SignInButton>
-              </DropdownMenuItem>
-            </SignedOut>
+            <DropdownMenuItem>
+              <SignInButton>
+                <button
+                  type="button"
+                  className="w-full flex items-center justify-between"
+                >
+                  <div className="flex items-center gap-2">
+                    <LogIn className="h-6 w-6 mr-2" />
+                    <p className="font-light text-lg">Login</p>
+                  </div>
+                </button>
+              </SignInButton>
+            </DropdownMenuItem>
           </DropdownMenuContent>
         </DropdownMenu>
       </div>
