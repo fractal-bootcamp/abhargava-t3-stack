@@ -1,6 +1,8 @@
 'use client'
 
 import { SignedIn, UserButton } from '@clerk/nextjs'
+import { useEffect, useState } from 'react'
+import { userInformation } from '~/app/_common/hooks/userInfo'
 import {
   Sidebar,
   SidebarContent,
@@ -9,12 +11,34 @@ import {
   SidebarHeader,
   SidebarSeparator,
 } from '~/components/ui/sidebar'
-import { userInformation } from '../hooks/userInfo'
 
 export function AppSidebar() {
   const { user } = userInformation()
+  const [isCollapsed, setIsCollapsed] = useState(false)
+
+  // Keyboard binding that sets tailwind-classes.
+  useEffect(() => {
+    const handleKeyDown = (event: KeyboardEvent) => {
+      if (event.metaKey && event.key === 'b') {
+        setIsCollapsed((prev) => !prev)
+      }
+    }
+
+    document.addEventListener('keydown', handleKeyDown)
+
+    return () => {
+      document.removeEventListener('keydown', handleKeyDown)
+    }
+  }, [])
+
   return (
-    <Sidebar variant="floating" side="right">
+    <Sidebar
+      variant="floating"
+      side="left"
+      collapsible="icon"
+      data-collapsed={isCollapsed}
+      className="group"
+    >
       <SidebarHeader />
       <SidebarContent>
         <SidebarGroup />
@@ -23,10 +47,8 @@ export function AppSidebar() {
       <SidebarFooter>
         <SignedIn>
           <button
-            className="flex items-center gap-3 hover:bg-gray-100 p-2 rounded-md transition-colors"
+            className="flex items-center place-content-center gap-3 hover:bg-gray-100 rounded-md transition-colors"
             onClick={() => {
-              // This was made by Claude 3.7
-              // Find the UserButton's internal button element and click it
               const userButtonElement = document.querySelector(
                 '.cl-userButtonTrigger',
               )
@@ -35,8 +57,8 @@ export function AppSidebar() {
               }
             }}
           >
-            <UserButton showName={false} />
-            <div className="flex flex-col justify-start">
+            <UserButton />
+            <div className="flex flex-col justify-start group-data-[collapsed=true]:hidden">
               <p className="text-md font-medium">
                 {user?.firstName} {user?.lastName}
               </p>
