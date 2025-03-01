@@ -60,10 +60,10 @@ export function AppSidebar() {
             <div className="flex items-center gap-3">
               <UserButton />
               <div className="flex flex-col items-start group-data-[collapsed=true]:hidden">
-                <p className="text-md font-medium">
+                <p className="text-md font-medium dark:text-white">
                   {user?.firstName} {user?.lastName}
                 </p>
-                <p className="text-sm text-gray-500">
+                <p className="text-sm text-gray-500 dark:text-gray-400">
                   Last Here:{' '}
                   {user?.lastSignInAt
                     ? new Date(user.lastSignInAt).toLocaleDateString()

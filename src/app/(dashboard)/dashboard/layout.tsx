@@ -7,10 +7,10 @@ export default async function DashboardLayout({
   children: React.ReactNode
 }) {
   return (
-    <div>
+    <div className="min-h-screen dark:bg-gray-950 dark:text-white">
       <SidebarProvider>
         <AppSidebar />
-        {children}
+        <div className="p-4">{children}</div>
       </SidebarProvider>
     </div>
   )
