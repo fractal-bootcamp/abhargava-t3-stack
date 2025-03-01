@@ -23,19 +23,19 @@ export function SidebarUserFooter() {
       >
         <div className="flex items-center gap-3">
           <UserButton />
-          <div
-            className={`flex flex-col items-start ${isCollapsed ? 'hidden' : ''}`}
-          >
-            <p className="text-xs font-medium dark:text-white">
-              {user?.firstName} {user?.lastName}
-            </p>
-            <p className="text-xs text-gray-500 dark:text-gray-400">
-              Last Sign In:{' '}
-              {user?.lastSignInAt
-                ? new Date(user.lastSignInAt).toLocaleDateString()
-                : 'No sign in date available'}
-            </p>
-          </div>
+          {!isCollapsed && (
+            <div className="flex flex-col items-start">
+              <p className="text-xs font-medium dark:text-white">
+                {user?.firstName} {user?.lastName}
+              </p>
+              <p className="text-xs text-gray-500 dark:text-gray-400">
+                Last Sign In:{' '}
+                {user?.lastSignInAt
+                  ? new Date(user.lastSignInAt).toLocaleDateString()
+                  : 'No sign in date available'}
+              </p>
+            </div>
+          )}
         </div>
       </button>
     </SignedIn>

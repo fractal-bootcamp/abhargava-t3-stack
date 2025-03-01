@@ -5,6 +5,11 @@ import { useSidebarStore } from '~/app/_common/stores/sidebar'
 
 export function SidebarOrgSwitcher() {
   const isCollapsed = useSidebarStore((state) => state.isCollapsed)
+
+  if (isCollapsed) {
+    return null
+  }
+
   return (
     <OrganizationSwitcher
       hidePersonal={true}

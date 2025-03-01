@@ -1,5 +1,7 @@
 import { SignInButton } from '@clerk/nextjs'
+import { currentUser } from '@clerk/nextjs/server'
 import { LogIn, Menu } from 'lucide-react'
+import { redirect } from 'next/navigation'
 import {
   DropdownMenu,
   DropdownMenuContent,
@@ -8,6 +10,12 @@ import {
 } from '~/components/ui/dropdown-menu'
 
 export default async function Home() {
+  const user = await currentUser()
+
+  if (user) {
+    redirect('/dashboard')
+  }
+
   return (
     <div className="min-h-screen dark:bg-gray-950">
       <div className="flex items-center justify-end gap-4 w-full border-b p-4 dark:border-gray-800">
