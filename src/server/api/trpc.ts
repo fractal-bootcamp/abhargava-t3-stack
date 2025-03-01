@@ -120,7 +120,7 @@ export const protectedMiddleware = t.middleware(async ({ ctx, next }) => {
   if (!ctx.userId) {
     throw new TRPCError({ code: 'FORBIDDEN' })
   }
-  return next({ ctx: { userId: ctx.userId } })
+  return next({ ctx })
 })
 
 /**
