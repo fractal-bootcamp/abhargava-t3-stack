@@ -44,7 +44,7 @@ export function AppSidebar() {
           hidePersonal={true}
           appearance={{
             elements: {
-              rootBox: 'w-full',
+              rootBox: isCollapsed ? 'hidden' : 'w-full',
               organizationSwitcherTrigger:
                 'w-full flex items-center justify-center gap-2 rounded-md p-2 hover:bg-gray-100 dark:hover:bg-gray-800 transition-colors duration-200',
               organizationPreview: 'font-medium text-sm',
@@ -56,10 +56,9 @@ export function AppSidebar() {
                 'w-full flex items-center gap-2 rounded-md p-2 text-sm hover:bg-gray-100 dark:hover:bg-gray-800 transition-colors duration-200',
               '.__clerk_internal_div': 'hidden',
               internal: 'hidden',
+              organizationPreviewTextContainer: isCollapsed ? 'hidden' : '',
               organizationSwitcherTriggerIcon: isCollapsed ? 'hidden' : '',
-              organizationPreviewAvatarBox: isCollapsed
-                ? 'place-content-center'
-                : 'hidden',
+              organizationPreviewAvatarBox: isCollapsed ? 'hidden' : 'hidden',
             },
           }}
         />
