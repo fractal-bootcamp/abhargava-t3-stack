@@ -30,3 +30,62 @@
 ### 📦 Deployment & Infrastructure
 - [Vercel](https://vercel.com/) - Deployment platform
 - [Supabase](https://supabase.com/) - Database infrastructure
+
+## Repository Structure
+
+
+```mermaid
+graph TD
+    %% Main Repository Structure
+    Root["CPQ Repository"] --> SRC["src/"]
+    Root --> Public["public/"]
+    Root --> Supabase["supabase/"]
+    Root --> Config["Configuration Files"]
+    
+    %% Source Code Structure
+    SRC --> App["app/"]
+    SRC --> Components["components/"]
+    SRC --> Server["server/"]
+    SRC --> TRPC["trpc/"]
+    SRC --> Lib["lib/"]
+    SRC --> Hooks["hooks/"]
+    SRC --> Store["store/"]
+    SRC --> Styles["styles/"]
+    SRC --> Middleware["middleware.ts"]
+    SRC --> Env["env.js"]
+    
+    %% App Directory Structure
+    App --> Layout["layout.tsx"]
+    App --> Page["page.tsx"]
+    App --> Application["(application)/"]
+    App --> Auth["(auth)/"]
+    App --> API["api/"]
+    App --> Common["_common/"]
+    
+    %% Server Structure
+    Server --> DB["db/"]
+    Server --> ServerAPI["api/"]
+    
+    %% Database Structure
+    DB --> Schema["schema.ts"]
+    DB --> DBIndex["index.ts"]
+    
+    %% Components Structure
+    Components --> UI["ui/"]
+    Components --> Themes["themes.tsx"]
+    
+    %% TRPC Structure
+    TRPC --> QueryClient["query-client.ts"]
+    TRPC --> ServerTS["server.ts"]
+    TRPC --> ReactTSX["react.tsx"]
+    
+    %% Configuration Files
+    Config --> PackageJSON["package.json"]
+    Config --> NextConfig["next.config.js"]
+    Config --> TailwindConfig["tailwind.config.ts"]
+    Config --> DrizzleConfig["drizzle.config.ts"]
+    Config --> TSConfig["tsconfig.json"]
+    Config --> BiomeJSON["biome.json"]
+    Config --> EnvFiles[".env files"]
+   
+   ```
