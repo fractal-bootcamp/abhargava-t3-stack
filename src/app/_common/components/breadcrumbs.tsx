@@ -8,7 +8,7 @@ import {
   BreadcrumbPage,
   BreadcrumbSeparator,
 } from '~/components/ui/breadcrumb'
-import { SidebarTrigger } from '~/components/ui/sidebar'
+import { SidebarToggleButton } from './breadcrumbs/trigger'
 import { generateBreadcrumbs } from './breadcrumbs/utility'
 
 export async function BreadcrumbHeader() {
@@ -21,7 +21,7 @@ export async function BreadcrumbHeader() {
 
   return (
     <header className="flex items-center gap-4 p-4">
-      <SidebarTrigger />
+      <SidebarToggleButton />
       <Breadcrumb>
         <BreadcrumbList>
           {breadcrumbs.map((crumb, index) => (
