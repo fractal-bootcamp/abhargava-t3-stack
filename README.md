@@ -1,7 +1,6 @@
-# T3-ABC Stack
+# Ajay's T3 Stack
 
 ## 🚀 Tech Stack
-
 ### 💅 Frontend
 - [Next.js](https://nextjs.org/) 15.0 - React framework with App Router
 - [React](https://react.dev/) 18.3 - UI library
