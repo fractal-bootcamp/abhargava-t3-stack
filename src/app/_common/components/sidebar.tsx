@@ -6,6 +6,7 @@ import {
   SidebarGroupLabel,
   SidebarHeader,
   SidebarSeparator,
+  useSidebar,
 } from '~/components/ui/sidebar'
 import { Navigation } from './sidebar/content/navigation'
 import { QuoteMenu } from './sidebar/content/quotes'
