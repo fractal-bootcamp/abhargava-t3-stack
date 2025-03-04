@@ -20,22 +20,22 @@ const navigationItems = [
   {
     icon: HomeIcon,
     label: 'Home',
-    href: '/',
+    href: '/app/dashboard',
   },
   {
     icon: SquareDashedMousePointer,
     label: 'Node Builder',
-    href: '/node-builder',
+    href: '/app/node-builder',
   },
   {
     icon: Workflow,
     label: 'Workflows',
-    href: '/workflows',
+    href: '/app/workflows',
   },
   {
     icon: FileText,
     label: 'Quotes',
-    href: '/quotes',
+    href: '/app/quotes',
   },
 ] as const
 
